@@ -5,7 +5,7 @@ Date: 2022.1.1
 Project name: people system
 Verson: 0.0.3
 """
-wb = load_workbook('./file/xlsx/class.xlsx')
+wb = load_workbook('./class.xlsx')
 account_pwd = wb['pwd']
 account_account = account_pwd.max_row
 
@@ -22,7 +22,7 @@ def reversed():
         if people.cell(row, 1).value == input_people:
             people.delete_rows(row)
             print('删除成功')
-    wb.save('./file/xlsx/class.xlsx')
+    wb.save('./class.xlsx')
 
 
 def add_person():
@@ -59,7 +59,7 @@ def all_cha():
 
     inde()
 def dao_excel():
-    is_dao = input('创建文档class2.xlsx在file文件下，但别打开文档，好了写y')
+    is_dao = input('创建文档class2.xlsx在本目录下，但别打开文档，好了写y')
     if is_dao == 'y':
         for row in range(1,people_count+1):
             if people.cell(row,1).value != None:
@@ -69,7 +69,7 @@ def dao_excel():
                 dao.cell(row, 2).value = people.cell(row, 2).value
                 dao.cell(row, 3).value = people.cell(row, 3).value
                 dao.cell(row, 4).value = people.cell(row, 4).value
-                da.save('./file/class2.xlsx')
+                da.save('./class2.xlsx')
                 print('导出成功')
 def inde():
     choose = eval(input('请输入你的学泽\n1.添加人员\n2.删除人员\n3.查询人员\n4.查所有人员\n5.导出所有人员成excel\n6.退出'))
@@ -128,4 +128,4 @@ elif choose_account == 2:
 #         txtsheet = pwdfile.read()
 #         people = wb[txtsheet]
 
-wb.save('./file/xlsx/class.xlsx')
+wb.save('./class.xlsx')
